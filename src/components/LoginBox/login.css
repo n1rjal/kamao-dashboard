@@ -1,0 +1,26 @@
+.loginBox__loginContainer {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.loginBox__loginForm {
+  width: 7cm;
+  background-color: #dedede;
+  padding: 1cm;
+}
+
+.loginBox__inputBox {
+  width: 100%;
+  outline: none;
+}
+
+.upperCase {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.loginBox__alternate_login {
+  font-size: 25px;
+}

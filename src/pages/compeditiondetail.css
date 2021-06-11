@@ -1,0 +1,41 @@
+.competitionpage__leftBox {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.competitionDetail__userImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.competition__category {
+  font-size: 10px;
+  padding: 3px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(61, 30, 18);
+}
+
+.competitionDetail__sponserModal {
+  width: 100px;
+  position: relative;
+  display: block;
+  padding: 3px;
+  border: 1px solid rgb(87, 87, 87);
+  font-size: 12px;
+  box-shadow: 0px 0px 5px rgb(29, 25, 25);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+.company__companyImage {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.competitionDetail__sponserModal__editControls button {
+  display: block;
+  position: relative;
+}

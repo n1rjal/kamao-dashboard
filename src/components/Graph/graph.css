@@ -1,0 +1,10 @@
+.dashboardGraph {
+  height: 250px;
+  width: 300px;
+}
+
+.graphContainer {
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%) 1;
+}

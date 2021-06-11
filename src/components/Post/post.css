@@ -1,0 +1,13 @@
+.loadingDiv {
+  width: 600px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .loadingDiv {
+    width: 300px;
+  }
+}

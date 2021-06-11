@@ -1,0 +1,24 @@
+.Counter {
+  display: block;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px black;
+  color: white;
+  display: block;
+  position: relative;
+}
+
+.Counter__CounterIcon {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.Counter__CounterName {
+  margin: 0 0;
+  font-size: 20px;
+}
+
+.Counter__CounterCount {
+  display: block;
+  font-size: 30px;
+}
