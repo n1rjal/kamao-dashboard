@@ -25,7 +25,6 @@ const Post = ({
     },
     `${_id}`
   );
-  console.log(post);
   return (
     <Popup
       open={show}

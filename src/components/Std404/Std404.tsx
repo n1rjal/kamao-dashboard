@@ -9,7 +9,6 @@ const Std404 = ({
   message1: string;
   message2: string;
 }) => {
-  console.log(message1);
   return (
     <div className="containFullScreen">
       <div className="messageContainer text-center">

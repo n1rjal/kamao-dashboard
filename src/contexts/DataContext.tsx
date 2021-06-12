@@ -24,10 +24,6 @@ const DataContextProvider = ({ children }: DataContextInterface.Props) => {
   const [competitionSkip, setCompetitionSkip] = useState<number>(0);
   const [dataVersion, setDataVersion] = useState<number>(1);
 
-  useEffect(() => {
-    console.log({ dataVersion });
-  }, [dataVersion]);
-
   const [userToken, setUserToken] = useLocalStorage("token", {});
 
   const incrementDataVersion = () => {
