@@ -10,7 +10,7 @@ const Comment = ({
   border,
 }: Post.CommentInterface) => {
   return (
-    <div className={`${border ? "mt-3" : ""}`}>
+    <div className={`${border ? "mt-2" : ""}`}>
       <>
         <div
           className={`d-flex commentContainer justify-content-start align-items-center`}
@@ -37,7 +37,9 @@ const Comment = ({
           </div>
         </div>
         <div className="mx-4 d-flex justify-content-right">
-          <div className={`${border ? "commentLeftSide" : ""} `}></div>
+          <div
+            className={`${border && replies?.length ? "commentLeftSide" : ""} `}
+          ></div>
           <div>
             {replies &&
               replies.map(
