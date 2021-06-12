@@ -37,14 +37,14 @@ const SideBar = () => {
           </span>
         </div>
         <hr />
-        {NavBarRoutes.map((NavRoute) => (
-          <section className="my-3">
+        {NavBarRoutes.map((NavRoute, index) => (
+          <section key={index} className="my-3">
             <h5>
               {" "}
               {NavRoute.icon} {NavRoute.primary_name}
             </h5>
             {NavRoute.routes?.map((InnerNavBarRoute) => (
-              <p className="my-1">
+              <p key={Math.random() * 100000000} className="my-1">
                 <NavLink
                   to={InnerNavBarRoute.link}
                   className="linkTitle d-flex align-items-center"

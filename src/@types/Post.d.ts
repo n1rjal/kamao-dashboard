@@ -16,11 +16,12 @@ declare module Post {
 
   interface CommentInterface {
     readonly _id: string;
+    border?: boolean;
     user: User.UserInterface;
     body: string;
     updated_at: string;
     created_at: string;
-    replies: CommentInterface[];
+    replies?: CommentInterface[];
   }
 
   interface GetAllPostParams {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHttpObject } from "../../hooks/useHttp";
 import { getPostById } from "../../services/posts.service";
+import Comment from "../Comment/Comment";
 import Popup from "../Popup/Popup";
 import "./post.css";
 
@@ -24,7 +25,7 @@ const Post = ({
     },
     `${_id}`
   );
-
+  console.log(post);
   return (
     <Popup
       open={show}
@@ -86,29 +87,18 @@ const Post = ({
                     user,
                     created_at,
                     replies,
+                    updated_at,
                   }: Post.CommentInterface) => (
-                    <>
-                      <div className="d-flex justify-content-start align-items-center">
-                        <img
-                          className="mx-2"
-                          src={
-                            user?.profile_picture
-                              ? `https://ka-mao.xyz/${user?.profile_picture}`
-                              : `https://ui-avatars.com/api/?size=128&name=${user.name}&background=000&color=fff&rounded=true`
-                          }
-                          width="50px"
-                          height="50px"
-                          style={{ borderRadius: "50%" }}
-                        />
-                        <div>
-                          <p>{user.name}</p>
-                          <small className="text-muted">
-                            {new Date(created_at).toDateString()}
-                          </small>
-                          <p>{body}</p>
-                        </div>
-                      </div>
-                    </>
+                    <Comment
+                      key={_id}
+                      _id={_id}
+                      updated_at={updated_at}
+                      user={user}
+                      border={true}
+                      body={body}
+                      created_at={created_at}
+                      replies={replies}
+                    />
                   )
                 )
               )}

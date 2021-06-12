@@ -1,0 +1,15 @@
+.commentLeftSide {
+  border: 0;
+  border-left: 2px dotted black;
+  margin-top: -1.5cm;
+  z-index: 1;
+}
+
+.commentContainer {
+  border: 0;
+}
+
+.borderTowardsLeft {
+  border-bottom: 2px dotted black;
+  width: 10px;
+}
