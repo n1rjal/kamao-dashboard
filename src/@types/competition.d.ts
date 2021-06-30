@@ -7,6 +7,8 @@ declare module Competition {
     title: string;
     description: string;
     created_at: string;
+    main_photo?:string;
+    cover_photo?:string;
     updated_at: string;
     __v?: number;
     totalSponsers?: number;

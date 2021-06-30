@@ -236,6 +236,27 @@ const GenerateTable = () => {
             columns: useMemo(
               () => [
                 {
+                  Header: "Main Photo",
+                  id: "main_photo",
+                  accessor: ({
+                    main_photo,
+                    title,
+                  }: {
+                    main_photo: string;
+                    title: string;
+                  }) => {
+                    return main_photo ? (
+                      <img src={`${main_photo}`} width="40" height="40" />
+                    ) : (
+                      <img
+                        src={`https://ui-avatars.com/api/?size=128&name=${title}&background=000&color=fff&rounded=true`}
+                        width="40"
+                        height="40"
+                      />
+                    );
+                  },
+                },
+                {
                   Header: "Title",
                   accessor: "title",
                 },

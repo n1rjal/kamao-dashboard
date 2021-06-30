@@ -83,60 +83,30 @@ export async function removeSponser({
   return data;
 }
 
-export async function createCompetition({
-  categories,
-  description,
-  startDate,
-  endDate,
-  title,
-}: {
-  title: string;
-  categories: string[];
-  description: string;
-  startDate: string;
-  endDate: string;
-}) {
+export async function createCompetition({ fData }: { fData: FormData }) {
   const data = await httpRequest({
     url: `${baseUrl}/create`,
     method: "POST",
     tokenProtected: true,
-    body: {
-      categories,
-      description,
-      startDate,
-      endDate,
-      title,
-    },
+    body: fData,
+    multipartForm: true,
   });
   return data;
 }
 
 export async function updateCompetition({
-  categories,
+  fData,
   competitionId,
-  description,
-  startDate,
-  endDate,
-  title,
 }: {
+  fData: FormData;
   competitionId: string;
-  title: string;
-  categories: string[];
-  description: string;
-  startDate: string;
-  endDate: string;
 }) {
   const data = await httpRequest({
     url: `${baseUrl}/${competitionId}`,
     method: "PUT",
     tokenProtected: true,
-    body: {
-      categories,
-      description,
-      startDate,
-      endDate,
-      title,
-    },
+    body: fData,
+    multipartForm: true,
   });
   return data;
 }

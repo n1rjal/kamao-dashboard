@@ -1,8 +1,7 @@
 import "./card.css";
 
-const Card = (props: any) => {
-  return <div className={props.className}>{props.render()}</div>;
-};
+const Card = (props: any) => (
+  <div className={props.className}>{props.render()}</div>
+);
 
 export default Card;
-

@@ -172,6 +172,12 @@ const CompetitonDetailPage = () => {
           _id={postPopUp.id}
         />
       )}
+      <div
+        className="competitionPage__competitionCoverPhotoWrapper"
+        style={{
+          backgroundImage: `linear-gradient(to top, #f2f3f5, transparent, transparent, transparent),url(${competition?.cover_photo})`,
+        }}
+      ></div>
       <div>
         <div className="d-flex flex-wrap justify-content-between">
           <Counter
@@ -224,22 +230,34 @@ const CompetitonDetailPage = () => {
           </div>
           <div className="col-11 my-2 col-lg-7 col-md-6 bg-custom-light competitionpage__rightBox">
             <div className="infoBox">
-              <h1 className="competitionpage__competiionTitle my-2">
-                {competition?.title}
-              </h1>
-              <div className="d-flex flex-wrap">
-                {competition?.categories?.map((category) => (
-                  <p className="competition__category mx-1">{category}</p>
-                ))}
+              <div className="d-flex mx-2 justify-content-between align-items-center">
+                <div>
+                  <h1 className="competitionpage__competiionTitle my-2">
+                    {competition?.title}
+                  </h1>
+                  <div className="d-flex flex-wrap">
+                    {competition?.categories?.map((category) => (
+                      <p className="competition__category mx-1">{category}</p>
+                    ))}
+                  </div>
+                  <small>
+                    Status : {isActiveCompetition ? "Active" : "Not Active"}{" "}
+                    <br />
+                    Starting Date :
+                    {new Date(competition?.startDate || "").toDateString()}
+                    <br />
+                    Ending Date:{" "}
+                    {new Date(competition?.endDate || "").toDateString()}
+                  </small>
+                </div>
+                <img
+                  src={
+                    competition?.main_photo ||
+                    `https://ui-avatars.com/api/?size=128&name=${competition.title}&background=000&color=fff&rounded=true`
+                  }
+                  className="competitionPage__mainPhoto"
+                />
               </div>
-              <small>
-                Status : {isActiveCompetition ? "Active" : "Not Active"} <br />
-                Starting Date :
-                {new Date(competition?.startDate || "").toDateString()}
-                <br />
-                Ending Date:{" "}
-                {new Date(competition?.endDate || "").toDateString()}
-              </small>
               <hr />
               <div className="competitionpage__competitionDescription">
                 <p>{competition?.description}</p>
@@ -350,9 +368,10 @@ const CompetitonDetailPage = () => {
                 {sponser?.company?._id && (
                   <Card
                     key={sponser?._id}
+                    className="competitionDetail__sponserModal mx-3 p-2"
                     {...{
                       render: () => (
-                        <div className="competitionDetail__sponserModal mx-3 p-2">
+                        <div>
                           <img
                             src={`https://ka-mao.xyz/${sponser?.company?.image}`}
                             className="company__companyImage"

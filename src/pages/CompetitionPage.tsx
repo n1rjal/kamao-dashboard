@@ -6,6 +6,7 @@ import CompetitionForm from "../components/Form/CompetitionForm";
 import { createCompetition } from "../services/competition.service";
 import { notify } from "../utils/toaster";
 import useQuery from "../hooks/useQuery";
+import { objectToFormData } from "../utils/objectToFormData";
 
 const CompetitionPage = (props: any) => {
   const data = useContext(DataContext);
@@ -36,7 +37,8 @@ const CompetitionPage = (props: any) => {
             {...{
               onSubmit: (values: any) => {
                 async function createCompetitionFunction() {
-                  await createCompetition(values);
+                  const fData: FormData = objectToFormData(values);
+                  await createCompetition({ fData });
                   setShowCreateForm(!showCreateForm);
                   notify("success", "Competition Created");
                   data.setter?.setDataVersion && data.setter.setDataVersion();
@@ -53,6 +55,27 @@ const CompetitionPage = (props: any) => {
           openLink: true,
           columns: useMemo(
             () => [
+              {
+                Header: "Main Photo",
+                id: "main_photo",
+                accessor: ({
+                  main_photo,
+                  title,
+                }: {
+                  main_photo: string;
+                  title: string;
+                }) => {
+                  return main_photo ? (
+                    <img src={`${main_photo}`} width="40" height="40" />
+                  ) : (
+                    <img
+                      src={`https://ui-avatars.com/api/?size=128&name=${title}&background=000&color=fff&rounded=true`}
+                      width="40"
+                      height="40"
+                    />
+                  );
+                },
+              },
               {
                 Header: "Title",
                 accessor: "title",

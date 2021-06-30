@@ -12,6 +12,8 @@ const competitionSchema = Yup.object({
   description: Yup.string().required("Description is Required"),
   startDate: Yup.date().min(new Date(), "Start Date can't be past"),
   endDate: Yup.date().min(Yup.ref("startDate")),
+  cover_photo: Yup.string().required("Cover Photo is required"),
+  main_photo: Yup.string().required("Main Photo is required"),
 });
 
 const CompetitionForm = (props: any) => (
@@ -30,6 +32,8 @@ const CompetitionForm = (props: any) => (
         (props?.initialValues?.endDate &&
           new Date(props?.initialValues?.endDate)) ||
         new Date(),
+      cover_photo: props?.initialValues?.cover_photo,
+      main_photo: props?.initialValues?.main_photo,
     }}
   >
     {({ values, handleChange, errors, setFieldValue, isSubmitting }) => {
@@ -101,6 +105,36 @@ const CompetitionForm = (props: any) => (
                   dateFormat="yyyy/MM/dd"
                 ></DatePicker>
                 <small className="text-danger">{errors.endDate}</small>
+              </div>
+              <div className="form-group my-1">
+                <label htmlFor="">Cover Photo</label>
+                <input
+                  type="file"
+                  className="form-control form-control-sm"
+                  id="formFileSm"
+                  name="cover_photo"
+                  accept="image/*"
+                  onChange={(e) => {
+                    if (e.currentTarget.files) {
+                      setFieldValue("cover_photo", e.currentTarget.files[0]);
+                    }
+                  }}
+                />
+              </div>
+              <div className="form-group my-1">
+                <label htmlFor="">Main Photo</label>
+                <input
+                  type="file"
+                  name="cover_photo"
+                  className="form-control form-control-sm"
+                  id="formFileSm"
+                  accept="image/*"
+                  onChange={(e) => {
+                    if (e.currentTarget.files) {
+                      setFieldValue("main_photo", e.currentTarget.files[0]);
+                    }
+                  }}
+                />
               </div>
               <input
                 type="submit"

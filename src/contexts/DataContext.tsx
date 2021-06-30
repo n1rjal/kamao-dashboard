@@ -27,6 +27,7 @@ const DataContextProvider = ({ children }: DataContextInterface.Props) => {
   const [userToken, setUserToken] = useLocalStorage("token", {});
 
   const incrementDataVersion = () => {
+    console.log("Data version increased");
     setDataVersion(dataVersion + 1);
   };
 
