@@ -22,7 +22,7 @@ const Comment = ({
               user?.profile_picture
                 ? user.profile_picture.startsWith("https")
                   ? user.profile_picture
-                  : `https:ka-mao.xyz/${user.profile_picture}`
+                  : `https://ka-mao.xyz/${user.profile_picture}`
                 : `https://ui-avatars.com/api/?size=128&name=${user.name}&background=000&color=fff&rounded=true`
             }
             width="50px"
