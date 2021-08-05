@@ -66,7 +66,7 @@ const Post = ({
                     post?.user?.profile_picture
                       ? post?.user.profile_picture.startsWith("https")
                         ? post?.user.profile_picture
-                        : `https:ka-mao.xyz/${post?.user.profile_picture}`
+                        : `https://ka-mao.xyz/${post?.user.profile_picture}`
                       : `https://ui-avatars.com/api/?size=128&name=${post?.user?.name}&background=000&color=fff&rounded=true`
                   }
                 />
