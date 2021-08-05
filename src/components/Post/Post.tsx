@@ -48,13 +48,13 @@ const Post = ({
                   autoPlay
                   poster={
                     post?.media?.thumbnail_gif
-                      ? `https://ka-mao.xyz/${post?.media?.thumbnail_gif || ""}`
+                      ? post?.media?.thumbnail_gif
                       : `https://i.pinimg.com/originals/43/3d/83/433d83f7e481f35245f8c6bb7c7591d8.gif`
                   }
                   id="videoPlayer"
                   playsInline
                   controlsList="nodownload"
-                  src={`https://ka-mao.xyz/post/${post?._id || ""}/watch`}
+                  src={post?.media?.path}
                   controls
                 ></video>
               </div>
