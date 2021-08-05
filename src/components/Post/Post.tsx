@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useHttpObject } from "../../hooks/useHttp";
 import { getPostById } from "../../services/posts.service";
 import Comment from "../Comment/Comment";
@@ -59,6 +58,18 @@ const Post = ({
                 ></video>
               </div>
               <div className="col-12 col-sm-12 col-lg align-item-start">
+                <img
+                  width="50px"
+                  height="50px"
+                  style={{ borderRadius: "50%" }}
+                  src={
+                    post?.user?.profile_picture
+                      ? post?.user.profile_picture.startsWith("https")
+                        ? post?.user.profile_picture
+                        : `https:ka-mao.xyz/${post?.user.profile_picture}`
+                      : `https://ui-avatars.com/api/?size=128&name=${post?.user?.name}&background=000&color=fff&rounded=true`
+                  }
+                />
                 <div className="my-2">
                   <div className="description">{post?.description}</div>
                   <h5 className="my-3">{post?.user?.name || ""}</h5>

@@ -157,7 +157,11 @@ const GenerateTable = () => {
                     profile_picture ? (
                       <img
                         style={{ width: "64px", height: "64px" }}
-                        src={`https://ka-mao.xyz/${profile_picture}`}
+                        src={
+                          profile_picture.startsWith("https")
+                            ? profile_picture
+                            : `https://ka-mao.xyz/${profile_picture}`
+                        }
                       ></img>
                     ) : (
                       <img
