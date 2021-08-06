@@ -1,11 +1,14 @@
 import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
-import { DataContext } from "../../contexts/DataContext";
 import Post from "../Post/Post";
 import Table from "./Table";
+import Profile from "../Profile/Profile";
 
 const GenerateTable = () => {
   const [postShow, setPostShow] = useState<{ id: string; show: boolean }>({
+    id: "",
+    show: false,
+  });
+  const [userShow, setUserShow] = useState<{ id: string; show: boolean }>({
     id: "",
     show: false,
   });
@@ -18,6 +21,17 @@ const GenerateTable = () => {
             show: postShow.show,
             setShow: () => {
               setPostShow({ ...postShow, show: false });
+            },
+          }}
+        />
+      )}
+      {userShow.show && (
+        <Profile
+          {...{
+            id: userShow.id,
+            show: userShow.show,
+            setShow: () => {
+              setUserShow({ ...userShow, show: false });
             },
           }}
         />
@@ -184,6 +198,24 @@ const GenerateTable = () => {
                   accessor: ({ created_at }: { created_at: string }) => {
                     return new Date(created_at).toDateString();
                   },
+                },
+                {
+                  Header: "",
+                  id: "_id",
+                  accessor: ({ _id }: { _id: string }) => (
+                    <button
+                      className="btn btn-warning"
+                      onClick={() => {
+                        setUserShow({
+                          ...userShow,
+                          id: _id,
+                          show: true,
+                        });
+                      }}
+                    >
+                      View
+                    </button>
+                  ),
                 },
               ],
               []

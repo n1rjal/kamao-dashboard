@@ -51,6 +51,15 @@ export const refreshUserToken = async ({
   return data;
 };
 
+export const getUserProfileById = async ({ id }: { id: string }) => {
+  const data = await httpRequest({
+    url: `${baseUrl}/${id}/profile`,
+    method: "GET",
+    tokenProtected: true,
+  });
+  return data;
+};
+
 export const getUserProfile = async () => {
   const data = await httpRequest({
     url: `${baseUrl}/token-user`,

@@ -322,6 +322,7 @@ const CompetitonDetailPage = () => {
             </div>
           </div>
         </div>
+
         <div className="competitionDetail__sponsersContainer bg-custom-light p-3 rounded">
           <div className="d-flex justify-content-between">
             <h2>Sponsers</h2>
